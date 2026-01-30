@@ -4,12 +4,13 @@
   "description": "A comprehensive collection of Java programs for ICSE Class 10 Computer Applications with organized categories and interactive search.",
   "main": "index.js",
   "scripts": {
+    "dev": "browser-sync start --server --files '*.html, css/*.css, js/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "browser-sync": "^3.0.4"
   },
