@@ -1,5 +1,6 @@
 export const programsData = {
     board: [
+        // 2025 BOARD PAPERS
         {
             id: 1,
             title: "Cloud Storage Billing System",
@@ -44,105 +45,65 @@ class CloudStorage{
         },
         {
             id: 2,
-            title: "Array NORM Calculation",
-            description: "Calculate NORM of a 4x4 matrix (sqrt of sum of squares)",
+            title: "Cab Service - Distance Billing",
+            description: "Calculate cab fare based on AC/Non-AC and distance",
             category: "board",
             year: 2025,
             paper: "board",
-            tags: ["Array", "2D Array", "Math"],
-            difficulty: "Medium",
+            tags: ["Class", "Calculation", "Conditional"],
+            difficulty: "Easy",
             code: `import java.util.Scanner;
-class Norm{
-    public static void main(String[] args){
+class CabService{
+    String carType;
+    double km;
+    double bill;
+    public CabService(){
+        carType = "";
+        km = 0.0;
+        bill = 0.0;
+    }
+    public void accept(){
         Scanner in = new Scanner(System.in);
-        int a[][] = new int[4][4];
-        int sum = 0;
-        System.out.println("Enter array elements:");
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; j < 4; j++){
-                a[i][j] = Integer.parseInt(in.nextLine());
-                sum += a[i][j] * a[i][j];
-            }
+        System.out.print("Car type (AC/NON): ");
+        carType = in.nextLine().toUpperCase();
+        System.out.print("Distance travelled: ");
+        km = Double.parseDouble(in.nextLine());
+    }
+    public void calculate(){
+        if(km <= 5){
+            if(carType.startsWith("AC"))
+                bill = 150.0;
+            else
+                bill = 120.0;
         }
-        double root = Math.sqrt(sum);
-        System.out.println("NORM = " + root);
+        else{
+            if(carType.startsWith("AC"))
+                bill = 150.0 + (km - 5) * 10;
+            else
+                bill = 120.0 + (km - 5) * 8;
+        }
+    }
+    public void display(){
+        System.out.println("Car Type: " + carType);
+        System.out.println("Distance: " + km);
+        System.out.println("Bill: " + bill);
+    }
+    public static void main(String[] args){
+        CabService obj = new CabService();
+        obj.accept();
+        obj.calculate();
+        obj.display();
     }
 }`
         },
         {
             id: 3,
-            title: "Super String Check",
-            description: "Check if uppercase letters equal lowercase letters",
+            title: "Method Overloading - Print Methods",
+            description: "Print pattern, calculate sum, and compare ASCII values",
             category: "board",
             year: 2025,
             paper: "board",
-            tags: ["String", "Character", "Logic"],
-            difficulty: "Easy",
-            code: `import java.util.Scanner;
-class SuperString{
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter the string: ");
-        String s = in.nextLine();
-        int upper = 0;
-        int lower = 0;
-        for(int i = 0; i < s.length(); i++){
-            char ch = s.charAt(i);
-            if(Character.isUpperCase(ch))
-                upper++;
-            else if(Character.isLowerCase(ch))
-                lower++;
-        }
-        if(upper == lower)
-            System.out.println("String is a Super String");
-        else
-            System.out.println("String is not a Super String");
-    }
-}`
-        },
-        {
-            id: 4,
-            title: "Binary Search on Character Array",
-            description: "Search for a character in a sorted array using binary search",
-            category: "board",
-            year: 2025,
-            paper: "board",
-            tags: ["Search", "Array", "Binary Search"],
-            difficulty: "Medium",
-            code: `import java.util.Scanner;
-class Search{
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        char a[] = {'A', 'H', 'N', 'P', 'S', 'U', 'W', 'Y', 'Z', 'b', 'd'};
-        System.out.print("Character to be searched: ");
-        char key = in.nextLine().charAt(0);
-        int low = 0;
-        int high = a.length - 1;
-        int mid = 0;
-        while(low <= high){
-            mid = (low + high) / 2;
-            if(key == a[mid])
-                break;
-            else if(key < a[mid])
-                high = mid - 1;
-            else
-                low = mid + 1;
-        }
-        if(low > high)
-            System.out.println("Search is not successful");
-        else
-            System.out.println("Search is successful");
-    }
-}`
-        },
-        {
-            id: 5,
-            title: "Method Overloading",
-            description: "Overload print() method - pattern, sum, and ASCII comparison",
-            category: "board",
-            year: 2025,
-            paper: "board",
-            tags: ["Method", "Overloading", "Pattern"],
+            tags: ["Overloading", "Method", "Pattern"],
             difficulty: "Hard",
             code: `class Overload{
     public void print(){
@@ -150,10 +111,7 @@ class Search{
             char ch = '@';
             for(int j = 0; j < 5; j++){
                 System.out.print(ch);
-                if(ch == '@')
-                    ch = '#';
-                else
-                    ch = '@';
+                ch = (ch == '@') ? '#' : '@';
             }
             System.out.println();
         }
@@ -162,87 +120,47 @@ class Search{
         double sum = 0.0;
         for(double i = a; i <= b; i += 0.5)
             sum += i;
-        System.out.println("Sum = " + sum);
         return sum;
     }
     public int print(char ch1, char ch2){
-        if(ch1 > ch2)
-            return (int)ch1;
-        return (int)ch2;
+        return (ch1 > ch2) ? (int)ch1 : (int)ch2;
     }
 }`
         },
+        // 2025 SPECIMEN PAPERS
         {
-            id: 6,
-            title: "Largest and Smallest Digit Sum",
-            description: "Check if sum of largest and smallest digit is even or odd",
-            category: "board",
-            year: 2025,
-            paper: "board",
-            tags: ["Number", "Logic"],
-            difficulty: "Easy",
-            code: `import java.util.Scanner;
-class Find{
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        int num = Integer.parseInt(in.nextLine());
-        int sum = 0;
-        int smallest = num % 10;
-        int largest = num % 10;
-        for(int i = num; i != 0; i /= 10){
-            int digit = i % 10;
-            if(smallest > digit)
-                smallest = digit;
-            if(largest < digit)
-                largest = digit;
-        }
-        sum = smallest + largest;
-        if(sum % 2 == 0)
-            System.out.println("Sum is even");
-        else
-            System.out.println("Sum is odd");
-    }
-}`
-        },
-        {
-            id: 7,
+            id: 4,
             title: "Bank Interest Calculator",
             description: "Calculate compound interest with tiered interest rates",
             category: "board",
             year: 2025,
             paper: "specimen",
-            tags: ["Class", "Method", "Interest"],
+            tags: ["Class", "Interest", "Calculation"],
             difficulty: "Easy",
             code: `import java.util.Scanner;
 class Bank{
-    double p;
-    double n;
-    double r;
-    double a;
+    double p, n, r, a;
     public void accept(){
         Scanner in = new Scanner(System.in);
-        System.out.print("Principal amount: ");
+        System.out.print("Principal: ");
         p = Double.parseDouble(in.nextLine());
-        System.out.print("Time period in years: ");
+        System.out.print("Time period (years): ");
         n = Double.parseDouble(in.nextLine());
     }
     public void calculate(){
-        if(n <= 0.5)
-            r = 9.0;
-        else if(n <= 1.0)
-            r = 10.0;
-        else if(n <= 3.0)
-            r = 11.0;
-        else
-            r = 12.0;
-        a = p * Math.pow(1 + r / 100, n);
+        if(n <= 0.5) r = 9.0;
+        else if(n <= 1.0) r = 10.0;
+        else if(n <= 3.0) r = 11.0;
+        else r = 12.0;
+        a = p * Math.pow(1 + r/100, n);
     }
     public void display(){
-        System.out.println("Principal\\tTime\\tRate\\tAmount");
-        System.out.println(p + "\\t\\t" + n + "\\t" + r + "\\t" + a);
+        System.out.println("Principal: " + p);
+        System.out.println("Time: " + n + " years");
+        System.out.println("Rate: " + r + "%");
+        System.out.println("Amount: " + a);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Bank obj = new Bank();
         obj.accept();
         obj.calculate();
@@ -251,227 +169,399 @@ class Bank{
 }`
         },
         {
-            id: 8,
-            title: "Binary Search on Double Array",
-            description: "Search for a double value in a sorted array",
+            id: 5,
+            title: "Eshop - Discount Calculator",
+            description: "Calculate net amount after tiered discount on price",
             category: "board",
-            year: 2025,
-            paper: "specimen",
-            tags: ["Search", "Array", "Binary Search"],
-            difficulty: "Medium",
+            year: 2024,
+            paper: "board",
+            tags: ["Class", "Discount", "Calculation"],
+            difficulty: "Easy",
             code: `import java.util.Scanner;
-class Search{
-    public static void main(String args[]){
+class Eshop{
+    String name;
+    double price;
+    public void accept(){
         Scanner in = new Scanner(System.in);
-        double a[] = {5.6, 11.5, 20.8, 35.4, 43.1, 52.4, 66.6, 78.9, 80.0, 95.5};
-        System.out.print("Element to be searched: ");
-        double key = Double.parseDouble(in.nextLine());
-        int low = 0;
-        int high = a.length - 1;
-        int mid = 0;
-        while(low <= high){
-            mid = (low + high) / 2;
-            if(key == a[mid])
-                break;
-            else if(key < a[mid])
-                high = mid - 1;
-            else
-                low = mid + 1;
-        }
-        if(low > high)
-            System.out.println("Search element not found");
-        else
-            System.out.println("Search successful");
+        System.out.print("Item: ");
+        name = in.nextLine();
+        System.out.print("Price: ");
+        price = Double.parseDouble(in.nextLine());
+    }
+    public void calculate(){
+        double dp = 0.0;
+        if(price >= 1000 && price <= 25000) dp = 5.0;
+        else if(price > 25000 && price <= 57000) dp = 7.5;
+        else if(price > 57000 && price <= 100000) dp = 10.0;
+        else if(price > 100000) dp = 15.0;
+        double discount = dp / 100 * price;
+        price -= discount;
+    }
+    public void display(){
+        System.out.println("Item: " + name);
+        System.out.println("Net bill: " + price);
+    }
+    public static void main(String[] args){
+        Eshop obj = new Eshop();
+        obj.accept();
+        obj.calculate();
+        obj.display();
+    }
+}`
+        },
+        {
+            id: 6,
+            title: "Student Stream Allocation",
+            description: "Allocate stream based on marks - Science/Commerce/Arts",
+            category: "board",
+            year: 2023,
+            paper: "board",
+            tags: ["Class", "Conditional", "Method"],
+            difficulty: "Easy",
+            code: `import java.util.Scanner;
+class Student{
+    String name;
+    int age, mks;
+    String stream;
+    public void accept(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name: ");
+        name = in.nextLine();
+        System.out.print("Age: ");
+        age = Integer.parseInt(in.nextLine());
+        System.out.print("Marks: ");
+        mks = Integer.parseInt(in.nextLine());
+    }
+    public void allocation(){
+        if(mks >= 300) stream = "Science and Computer";
+        else if(mks >= 200) stream = "Commerce and Computer";
+        else if(mks >= 75) stream = "Arts and Animation";
+        else stream = "Try again";
+    }
+    public void print(){
+        System.out.println("Name: " + name);
+        System.out.println("Stream: " + stream);
+    }
+    public static void main(String[] args){
+        Student obj = new Student();
+        obj.accept();
+        obj.allocation();
+        obj.print();
+    }
+}`
+        },
+        {
+            id: 7,
+            title: "Hotel - GST & Service Tax Calculator",
+            description: "Calculate total bill with GST (18%) and service tax (12.5%)",
+            category: "board",
+            year: 2021,
+            paper: "board",
+            tags: ["Class", "Calculation", "Tax"],
+            difficulty: "Easy",
+            code: `import java.util.Scanner;
+class Hotel{
+    String name;
+    long mno;
+    double bill, gst, st, tamt;
+    public void accept(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name: ");
+        name = in.nextLine();
+        System.out.print("Mobile: ");
+        mno = Long.parseLong(in.nextLine());
+        System.out.print("Bill: ");
+        bill = Double.parseDouble(in.nextLine());
+    }
+    public void calculate(){
+        gst = 18.0 / 100 * bill;
+        st = 12.5 / 100 * bill;
+        tamt = bill + gst + st;
+    }
+    public void display(){
+        System.out.println("Customer: " + name);
+        System.out.println("Total Amount: " + tamt);
+    }
+    public static void main(String[] args){
+        Hotel obj = new Hotel();
+        obj.accept();
+        obj.calculate();
+        obj.display();
+    }
+}`
+        },
+        {
+            id: 8,
+            title: "ShowRoom - Tiered Discount",
+            description: "Calculate discount on shopping based on cost ranges",
+            category: "board",
+            year: 2019,
+            paper: "board",
+            tags: ["Class", "Discount", "Calculation"],
+            difficulty: "Easy",
+            code: `import java.util.Scanner;
+class ShowRoom{
+    String name;
+    long mobNo;
+    double cost, dis, amount;
+    public ShowRoom(){
+        name = "";
+        mobNo = 0;
+        cost = 0.0;
+        dis = 0.0;
+        amount = 0.0;
+    }
+    public void input(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name: ");
+        name = in.nextLine();
+        System.out.print("Mobile: ");
+        mobNo = Long.parseLong(in.nextLine());
+        System.out.print("Cost: ");
+        cost = Double.parseDouble(in.nextLine());
+    }
+    public void calculate(){
+        if(cost <= 10000) dis = 5.0;
+        else if(cost <= 20000) dis = 10.0;
+        else if(cost <= 35000) dis = 15.0;
+        else dis = 20.0;
+        dis = dis / 100 * cost;
+        amount = cost - dis;
+    }
+    public void display(){
+        System.out.println("Name: " + name);
+        System.out.println("Amount: " + amount);
+    }
+    public static void main(String[] args){
+        ShowRoom obj = new ShowRoom();
+        obj.input();
+        obj.calculate();
+        obj.display();
     }
 }`
         },
         {
             id: 9,
-            title: "String Character Transformation",
-            description: "Convert vowels to next char, consonants to previous char",
+            title: "Railway Ticket - Coach-based Pricing",
+            description: "Calculate ticket fare with extra charges for AC coaches",
             category: "board",
-            year: 2025,
-            paper: "specimen",
-            tags: ["String", "Character", "Transformation"],
-            difficulty: "Medium",
+            year: 2018,
+            paper: "board",
+            tags: ["Class", "Calculation", "Conditional"],
+            difficulty: "Easy",
             code: `import java.util.Scanner;
-class Change{
-    public static void main(String[] args){
+class RailwayTicket{
+    String name, coach;
+    long mobNo;
+    int amt, totalAmt;
+    public void accept(){
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter the string: ");
-        String s = in.nextLine().toUpperCase();
-        String t = "";
-        for(int i = 0; i < s.length(); i++){
-            char ch = s.charAt(i);
-            if(Character.isLetter(ch)){
-                if("AEIOU".indexOf(ch) >= 0)
-                    t += (char)(ch + 1);
-                else
-                    t += (char)(ch - 1);
-            }
-            else
-                t += ch;
-        }
-        System.out.println(t);
+        System.out.print("Name: ");
+        name = in.nextLine();
+        System.out.print("Coach: ");
+        coach = in.nextLine();
+        System.out.print("Mobile: ");
+        mobNo = Long.parseLong(in.nextLine());
+        System.out.print("Amount: ");
+        amt = Integer.parseInt(in.nextLine());
+    }
+    public void update(){
+        if(coach.equalsIgnoreCase("First_AC"))
+            totalAmt = amt + 700;
+        else if(coach.equalsIgnoreCase("Second_AC"))
+            totalAmt = amt + 500;
+        else if(coach.equalsIgnoreCase("Third_AC"))
+            totalAmt = amt + 250;
+        else
+            totalAmt = amt;
+    }
+    public void display(){
+        System.out.println("Name: " + name);
+        System.out.println("Total Amount: " + totalAmt);
+    }
+    public static void main(String[] args){
+        RailwayTicket obj = new RailwayTicket();
+        obj.accept();
+        obj.update();
+        obj.display();
     }
 }`
         },
         {
             id: 10,
-            title: "Matrix Row Sum",
-            description: "Calculate and display the sum of each row in a 4x4 matrix",
+            title: "Electric Bill - Unit-based Tariff",
+            description: "Calculate bill with tiered rates and surcharge for high usage",
             category: "board",
-            year: 2025,
-            paper: "specimen",
-            tags: ["Array", "2D Array", "Sum"],
-            difficulty: "Easy",
+            year: 2017,
+            paper: "board",
+            tags: ["Class", "Calculation", "Conditional"],
+            difficulty: "Medium",
             code: `import java.util.Scanner;
-class Matrix{
-    public static void main(String[] args){
+class ElectricBill{
+    String n;
+    int units;
+    double bill;
+    public void accept(){
         Scanner in = new Scanner(System.in);
-        int a[][] = new int[4][4];
-        System.out.println("Enter matrix elements:");
-        for(int i = 0; i < a.length; i++){
-            for(int j = 0; j < a.length; j++){
-                a[i][j] = Integer.parseInt(in.nextLine());
-            }
+        System.out.print("Name: ");
+        n = in.nextLine();
+        System.out.print("Units: ");
+        units = Integer.parseInt(in.nextLine());
+    }
+    public void calculate(){
+        if(units <= 100)
+            bill = units * 2.0;
+        else if(units <= 300)
+            bill = 200 + (units - 100) * 3.0;
+        else{
+            bill = 800 + (units - 300) * 5.0;
+            bill += 2.5 / 100 * bill;
         }
-        System.out.println("Original Matrix:");
-        for(int i = 0; i < a.length; i++){
-            for(int j = 0; j < a.length; j++){
-                System.out.print(a[i][j] + "\\t");
-            }
-            System.out.println();
-        }
-        for(int i = 0; i < a.length; i++){
-            int sum = 0;
-            for(int j = 0; j < a.length; j++){
-                sum += a[i][j];
-            }
-            System.out.println("sum of row " + (i + 1) + " = " + sum);
-        }
+    }
+    public void print(){
+        System.out.println("Name: " + n);
+        System.out.println("Units: " + units);
+        System.out.println("Bill: " + bill);
+    }
+    public static void main(String[] args){
+        ElectricBill obj = new ElectricBill();
+        obj.accept();
+        obj.calculate();
+        obj.print();
     }
 }`
         },
         {
             id: 11,
-            title: "SuperSpy Number Check",
-            description: "Check if sum of digits equals the number of digits",
+            title: "Book Fair - Discount by Price Range",
+            description: "Calculate book price with progressive discount",
             category: "board",
-            year: 2025,
-            paper: "specimen",
-            tags: ["Number", "Logic"],
+            year: 2016,
+            paper: "board",
+            tags: ["Class", "Discount", "Calculation"],
             difficulty: "Easy",
             code: `import java.util.Scanner;
-class SuperSpy{
-    public static void main(String[] args){
+class BookFair{
+    String bName;
+    double price;
+    public BookFair(){
+        bName = "";
+        price = 0.0;
+    }
+    public void input(){
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        int num = Integer.parseInt(in.nextLine());
-        int sum = 0;
-        int count = 0;
-        for(int i = num; i != 0; i /= 10){
-            count++;
-            sum += i % 10;
-        }
-        if(sum == count)
-            System.out.println(num + " is a superspy number!");
+        System.out.print("Book name: ");
+        bName = in.nextLine();
+        System.out.print("Price: ");
+        price = Double.parseDouble(in.nextLine());
+    }
+    public void calculate(){
+        if(price <= 1000)
+            price -= 2.0 / 100 * price;
+        else if(price <= 3000)
+            price -= 10.0 / 100 * price;
         else
-            System.out.println(num + " is not a superspy number.");
+            price -= 15.0 / 100 * price;
+    }
+    public void display(){
+        System.out.println("Book: " + bName);
+        System.out.println("Price after discount: " + price);
+    }
+    public static void main(String[] args){
+        BookFair obj = new BookFair();
+        obj.input();
+        obj.calculate();
+        obj.display();
     }
 }`
         },
         {
             id: 12,
-            title: "Method Overloading - Advanced",
-            description: "Overload display() - pattern, quotient/sum, and calculation",
+            title: "Parking Lot - Hourly Billing",
+            description: "Calculate parking charges - 3 rupees 1st hour, 1.50 each additional",
             category: "board",
-            year: 2025,
-            paper: "specimen",
-            tags: ["Method", "Overloading", "Calculation"],
-            difficulty: "Hard",
-            code: `class Overload{
-    public static void display(){
-        for(int i = 1; i <= 3; i++){
-            int value = 1;
-            for(int j = 1; j <= 5; j++){
-                System.out.print(value + " ");
-                if(value == 1)
-                    value = 2;
-                else
-                    value = 1;
-            }
-            System.out.println();
-        }
-    }
-    public static void display(int n, int m){
-        if(m > n){
-            int q = m / n;
-            System.out.println("Quotient = " + q);
-        }
-        else{
-            int sum = 2 * n + 3 * m;
-            System.out.println("Sum = " + sum);
-        }
-    }
-    public static double display(double a, double b, double c){
-        double p = (a + b) / c;
-        double q = a + b + c;
-        double z = p * q;
-        System.out.println("z = " + z);
-        return z;
-    }
-}`
-        }
-    ],
-    string: [
-        {
-            id: 101,
-            title: "String Reversal",
-            description: "Reverse a string without using built-in functions",
-            category: "string",
-            tags: ["String", "Loop"],
+            year: 2015,
+            paper: "board",
+            tags: ["Class", "Calculation", "Conditional"],
             difficulty: "Easy",
-            code: `public class StringReversal {
-    public static void main(String[] args) {
-        String str = "Hello";
-        String reversed = "";
-        
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed += str.charAt(i);
-        }
-        
-        System.out.println("Original: " + str);
-        System.out.println("Reversed: " + reversed);
+            code: `import java.util.Scanner;
+class ParkingLot{
+    int vno, hours;
+    double bill;
+    public void input(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Vehicle No: ");
+        vno = Integer.parseInt(in.nextLine());
+        System.out.print("Hours: ");
+        hours = Integer.parseInt(in.nextLine());
+    }
+    public void calculate(){
+        if(hours == 1)
+            bill = 3.0;
+        else
+            bill = 3.0 + (hours - 1) * 1.50;
+    }
+    public void display(){
+        System.out.println("Vehicle No: " + vno);
+        System.out.println("Hours: " + hours);
+        System.out.println("Bill: Rs. " + bill);
+    }
+    public static void main(String[] args){
+        ParkingLot obj = new ParkingLot();
+        obj.input();
+        obj.calculate();
+        obj.display();
     }
 }`
-        }
-    ],
-    array: [
+        },
         {
-            id: 201,
-            title: "Array Sum",
-            description: "Calculate sum of all elements in an array",
-            category: "array",
-            tags: ["Array", "Loop"],
-            difficulty: "Easy",
-            code: `public class ArraySum {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50};
-        int sum = 0;
-        
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
-        }
-        
-        System.out.println("Sum: " + sum);
+            id: 13,
+            title: "Courier - Weight-based Billing",
+            description: "Calculate courier charges with weight tiers and international surcharge",
+            category: "board",
+            year: 2020,
+            paper: "board",
+            tags: ["Class", "Calculation", "Conditional"],
+            difficulty: "Medium",
+            code: `import java.util.Scanner;
+class Courier{
+    String name;
+    double weight;
+    String address;
+    double bill;
+    char type;
+    public void accept(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name: ");
+        name = in.nextLine();
+        System.out.print("Weight (kg): ");
+        weight = Double.parseDouble(in.nextLine());
+        System.out.print("Address: ");
+        address = in.nextLine();
+        System.out.print("Type (D/I): ");
+        type = in.nextLine().charAt(0);
+    }
+    public void calculate(){
+        if(weight <= 5)
+            bill = weight * 800;
+        else if(weight <= 10)
+            bill = 4000 + (weight - 5) * 700;
+        else
+            bill = 7500 + (weight - 10) * 500;
+        if(type == 'I' || type == 'i')
+            bill += 1500;
+    }
+    public void print(){
+        System.out.println("Name: " + name);
+        System.out.println("Bill: " + bill);
+    }
+    public static void main(String[] args){
+        Courier obj = new Courier();
+        obj.accept();
+        obj.calculate();
+        obj.print();
     }
 }`
         }
-    ],
-    constructor: [],
-    method: [],
-    special: [],
-    pattern: [],
-    loop: []
+    ]
 };
