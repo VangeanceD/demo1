@@ -1,0 +1,19 @@
+{
+  "name": "icse-java-library",
+  "version": "1.0.0",
+  "description": "A comprehensive collection of Java programs for ICSE Class 10 Computer Applications with organized categories and interactive search.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  },
+  "dependencies": {
+    "open": "^11.0.0"
+  }
+}
