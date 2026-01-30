@@ -55,26 +55,58 @@
         <div id="board" class="category-section">
             <h2 class="category-header">📋 ICSE Board Questions & Resources</h2>
             <!-- Year Selection -->
-            <div id="boardYearView" class="programs-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                <div class="program-card" style="cursor: pointer; text-align: center; padding: 30px;" onclick="showBoardYearPaper(2025, 'board')">
-                    <div class="program-title" style="font-size: 36px; font-weight: bold;">2025</div>
-                </div>
-                <div class="program-card" style="cursor: pointer; text-align: center; padding: 30px;" onclick="showBoardYearPaper(2025, 'specimen')">
-                    <div class="program-title" style="font-size: 28px; font-weight: bold;">Specimen</div>
-                </div>
-                <div class="program-card" style="cursor: pointer; text-align: center; padding: 30px;" onclick="showBoardYearPaper(2024, 'board')">
-                    <div class="program-title" style="font-size: 36px; font-weight: bold;">2024</div>
-                </div>
-                <div class="program-card" style="cursor: pointer; text-align: center; padding: 30px;" onclick="showBoardYearPaper(2024, 'specimen')">
-                    <div class="program-title" style="font-size: 28px; font-weight: bold;">Specimen</div>
-                </div>
-                <div class="program-card" style="cursor: pointer; text-align: center; padding: 30px;" onclick="showBoardYearPaper(2023, 'board')">
-                    <div class="program-title" style="font-size: 36px; font-weight: bold;">2023</div>
+            <div id="boardYearView">
+                <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2025, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2025</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2025, 'specimen')">
+                        <div class="program-title" style="font-size: 20px; font-weight: bold; color: #764ba2;">2025</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Specimen</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2024, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2024</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2023, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2023</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2021, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2021</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2020, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2020</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2019, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2019</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2018, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2018</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2017, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2017</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2016, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2016</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
+                    <div class="program-card" style="cursor: pointer; text-align: center; padding: 24px; transition: all 0.3s ease;" onclick="showBoardYearPaper(2015, 'board')">
+                        <div class="program-title" style="font-size: 28px; font-weight: bold; color: #667eea;">2015</div>
+                        <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Board Paper</div>
+                    </div>
                 </div>
             </div>
             <!-- Programs Grid (Hidden initially) -->
             <div id="boardProgramsView" style="display: none;">
-                <button onclick="showBoardYears()" style="margin-bottom: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">← Back to Years</button>
+                <button onclick="showBoardYears()" style="margin-bottom: 20px; padding: 10px 20px; background-color: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 500;">← Back to Years</button>
+                <h2 class="category-header" style="margin-top: 0;"></h2>
                 <div id="boardProgramsGrid" class="programs-grid"></div>
             </div>
         </div>

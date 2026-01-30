@@ -149,6 +149,14 @@ function showBoardYears() {
 // Show board year papers
 function showBoardYearPaper(year, type) {
     const boardPrograms = programsData.board.filter(p => p.year === year && p.paper === type);
+    
+    // Update header with year and type
+    const typeLabel = type === 'specimen' ? '(Specimen)' : '';
+    const boardHeader = document.querySelector('#boardProgramsView .category-header');
+    if (boardHeader) {
+        boardHeader.innerHTML = `📋 ICSE ${year} ${typeLabel}`;
+    }
+    
     renderPrograms(boardPrograms, 'boardProgramsGrid');
     
     document.getElementById('boardYearView').style.display = 'none';
@@ -161,13 +169,25 @@ function showProgramModal(program) {
     const modalBody = document.getElementById('modalBody');
 
     const tagsHtml = program.tags.map(tag => `<span class="program-tag">${tag}</span>`).join('');
+    const paperLabel = program.paper === 'specimen' ? '(Specimen)' : '';
+    const yearLabel = program.year ? `${program.year} ${paperLabel}` : 'General';
 
     modalBody.innerHTML = `
-        <h3>${program.title}</h3>
+        <div class="modal-header">
+            <div>
+                <h3 style="margin: 0; color: #667eea;">${program.title}</h3>
+                <p style="margin: 5px 0; color: #999; font-size: 0.9em;">${yearLabel}</p>
+            </div>
+            <button class="close-btn" onclick="document.getElementById('programModal').classList.remove('active');">&times;</button>
+        </div>
         <p>${program.description}</p>
         <div class="program-tags" style="margin-bottom: 20px;">${tagsHtml}</div>
+        <div class="program-meta" style="margin-bottom: 20px;">
+            <span>Difficulty: ${program.difficulty || 'N/A'}</span>
+            <span>Category: ${program.category || 'N/A'}</span>
+        </div>
         <button class="copy-btn" onclick="copyToClipboard(\`${program.code.replace(/`/g, '\\`')}\`)">📋 Copy Code</button>
-        <div class="modal-code">
+        <div class="code-container">
             <code>${escapeHtml(program.code)}</code>
         </div>
     `;
